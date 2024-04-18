@@ -1,0 +1,27 @@
+public class Counting{
+
+
+	void count(int n){
+
+		if(n==1){
+			System.out.print(n +" ");
+			return;
+		}
+		else
+		{	count(n-1);
+			System.out.print(n);
+		}
+	}
+		
+		
+
+
+	public static void main(String[] args){
+		
+		int n =9;
+
+		count(n);
+
+	}
+
+}

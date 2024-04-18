@@ -1,0 +1,17 @@
+public class Sum{
+
+
+	static void sum(int n){
+
+		if(n==0)
+			return;
+		else
+			retun n + sum(n-1);
+
+	public static void main(String args[]){
+		
+		int n= 9;
+	
+		sum(n);
+	}
+}

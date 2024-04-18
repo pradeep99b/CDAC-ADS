@@ -1,0 +1,39 @@
+class public AssignmentTen{
+
+
+	
+	static int rem = 0;
+
+	static int countIS(int n){
+
+		if(n==0)
+			return 0;
+		else{
+			return 1 + countIs(n/10);
+		}
+	}
+
+
+	static boolean isAutomorphic(int n,int square){
+		if(n==0)
+			return 0;
+		else{
+			sum= sum*10 + square%10;
+			n/=10;
+			return sum + isAutomorphic(n,square/10);
+		}
+
+			
+
+	}
+
+
+	public static void main(String args[]){
+
+	int n = 5;
+	int count = countIS(int n);
+	System.out.println(n==isAutomorphic(n,count));
+
+	}
+
+}

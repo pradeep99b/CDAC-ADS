@@ -1,0 +1,75 @@
+public class Deletion{
+	static Node head;
+
+	static class Node {
+		int data;
+		Node link;
+	
+		Node(int d) {
+			data = d;
+			link = null;	
+		}
+	}
+
+	static void display() {
+		Node n = head;
+		while(n != null) {	
+			System.out.print(n.data+"---> ");	
+			n = n.link;
+		}
+	}
+	
+	public void deleteNode(int key) {
+		Node temp = head, prev = null;
+		
+		//Deletion at the begining
+		if (temp !=null && temp.data == key){
+			head= temp.link;
+			return;
+		}
+
+		//Deletion node in between or at the end
+		while (temp !=null && temp.data != key){
+			prev = temp;
+			temp = temp.link;
+			//return;
+		}
+
+		//Deletion node at the end
+		if (temp ==null){
+			return;
+		}
+		
+		prev.link = temp.link;
+	}
+	
+	public static void main(String[] args) 
+	{
+		Deletion D1 = new Deletion();
+		D1.head = new Node(11);
+		Node second = new Node(22);
+		Node third = new Node(33);
+		Node fourth = new Node(44);
+		Node fifth = new Node(55);
+
+		D1.head.link = second;
+		second.link = third;
+		third.link = fourth;
+		fourth.link = fifth;
+		
+		D1.display();
+		
+		System.out.println("\n\nElement Deleted in the begining");
+		D1.deleteNode(11);		//Delete at the begining
+		D1.display();
+
+		System.out.println("\n\nElement Deleted in between");
+		D1.deleteNode(33);		//Delete in between
+		D1.display();
+
+		System.out.println("\n\nElement Deleted in end");
+		D1.deleteNode(55);		//Delete in the end
+		D1.display();
+		
+	}	
+}

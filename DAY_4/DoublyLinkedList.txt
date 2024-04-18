@@ -1,0 +1,55 @@
+public class DoublyLinkedList{
+
+
+	Node head;
+	Node prev;
+	Node next;
+
+	static class Node{
+
+		int data;
+		Node pre;
+		Node next_link;
+		
+		Node(int data){
+		 	this.data = data;
+			pre_link = null;
+			next_link = null;
+		}
+	}
+
+	void insert (int new_data)
+	{
+		Node new_node = new Node(new_data);
+		new_node.next = head;
+		new_node.prev = null;
+		if(head!= null)
+			head.prev = new_node;
+		head = new_node;
+	}
+
+	void display(Node n){
+
+		while(n!=null){
+			System.out.println(n.data+" " );
+			n=n.next_link;
+		}
+	}
+		
+
+
+	public static void main(String[] args){
+
+
+		DoublyLinkedList dl = new DoublyLinkedList();
+		dl.insert(10);
+		dl.insert(20);
+		dl.insert(30);
+		dl.insert(40);
+		dl.insert(50);
+
+		dl.display(dl.head);
+
+	}
+
+}

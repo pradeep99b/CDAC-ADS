@@ -1,0 +1,71 @@
+public class CircularQueue{
+
+
+	private int queue[];
+	private int front ;
+	private int rear;
+	private int size;
+	private static final int MAX =5;
+
+
+	CircularQueue(int capacity){
+
+
+		queue[] = new int[capacity];
+		front = -1;	
+		rear = -1;
+		size = 0;
+	}
+
+	
+	public boolean isFull(){
+
+		if(size==capacity)
+			return true;
+		return false;
+	
+	}
+
+	public boolean isEmpty(){
+
+		if(rear==-1)
+			return true;
+		return false;
+	}
+
+	public void enqueue(int data){
+
+
+		if(front==-1 && rear==-1)
+		{
+			queue[rear++] = data;
+			front =0;
+			size++;
+			
+		}
+		else{
+
+			if(isFull()){
+				System.out.println("Queue Overflow");
+				return;
+			}
+			
+			
+
+			arr[(rear+1)%capacity] = data;
+			size++;
+			
+		}
+	}
+
+	public void dequeue(){
+
+		if(isEmpty()){
+			System.out.println("Queue is Empty");
+			return;	
+		}
+
+		front++;
+		size--;
+
+		

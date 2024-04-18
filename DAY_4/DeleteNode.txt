@@ -1,0 +1,27 @@
+public class DeleteNode{
+
+
+	static void delete(int pos){
+
+	if(head==null)
+		return;
+	Node temp = head;
+	if(pos == 0){
+		head = temp.link;
+		return;
+	}
+	
+	for(int i=0;i<pos-1&&temp!=null;i++){
+		temp=temp.link;
+	}
+
+
+	}
+
+	public static void main(String[] args){
+
+	delete(int pos);
+
+	}
+
+}

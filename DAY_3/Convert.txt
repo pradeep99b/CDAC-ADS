@@ -1,0 +1,19 @@
+public class Convert{
+
+	static String convertLowerToUpper(String s){
+
+		if(s.charAt(i)>='a' && s.charAt(i)<='z'){
+			s = s.substring(0, i) + (char)(s.charAt(i)-32) + s.substring(i + 1);
+
+		}
+	}
+
+	public static void main(String args[])
+	{
+
+		
+		System.out.print(convertLowerToUpper("Hello"));
+
+	}
+
+}

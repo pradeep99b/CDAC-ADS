@@ -1,0 +1,65 @@
+class DLL{
+
+  Node head;
+   static class Node{
+     int data;
+    Node prev;
+    Node next;
+   
+       Node(int d){
+             data = d;
+             next = null;
+             prev = null;
+ 
+           }
+
+         }
+
+         
+   void insert(int new_data)
+      {
+         Node new_node = new Node(new_data);
+         new_node.next = head;
+         new_node.prev = null;
+           if(head != null)
+             head.prev = new_node;
+           head = new_node;
+
+       }
+
+
+  void display(Node n)
+  {
+      Node p=null;
+
+        System.out.println("Forward direction"); // using next pointer
+
+    while(n != null)
+    {
+        System.out.print(n.data+" ");
+        p=n;            // p will be at last node at end now we can print reverse
+        n=n.next;       // p=p.prev for reverse but we will have to use ptr from last
+       
+     }
+        System.out.println("--------------------");
+
+        System.out.println("reverse direction"); // using next pointer
+
+ while(p != null)
+    {
+        System.out.print(p.data+" ");
+        p=p.prev;   // p=p.prev for reverse but we will have to use ptr from last
+       
+     }
+  }
+
+ public static void main(String args[])
+ {
+ DLL d1 = new DLL();
+ d1.insert(1);
+ d1.insert(2);
+ d1.insert(3);
+d1.display(d1.head);
+
+ }
+ }

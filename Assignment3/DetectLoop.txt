@@ -1,0 +1,49 @@
+public class DetectLoop{
+    static class Node {
+        int data;
+        Node next;
+
+        Node(int d) {
+            data = d;
+            next = null;
+        }
+    }
+
+    static boolean ifLoop(Node head) {
+
+        if (head == null || head.next == null) {
+            return false; 
+        }
+
+        Node slow = head; 
+        Node fast = head.next;
+
+        while (fast != null && fast.next != null) {
+
+            if (slow == fast) {
+                return true;       
+	     }
+
+            slow = slow.next; 
+            fast = fast.next.next; 
+        }
+
+        return false; 
+    }
+
+    public static void main(String[] args) {
+
+        Node head = new Node(1);
+        head.next = new Node(2);
+        head.next.next = new Node(3);
+        head.next.next.next = new Node(4);
+        head.next.next.next.next = head;
+ 
+        if (detectLoop(head)) {
+            System.out.println("Loop found in the linked list.");
+        } 
+	else {
+            System.out.println("No loop found in the linked list.");
+        }
+    }
+}

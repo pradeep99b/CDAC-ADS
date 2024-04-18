@@ -1,0 +1,55 @@
+public class LinkedListMasterCode{
+
+
+	Node head;
+	static class Node {
+
+
+		int data;
+		Node link;
+		
+		Node(int data){
+
+		data = this.data;
+		link = null;
+
+		}
+	}
+
+	void insertAtBegining(int data){
+
+		Node new_node = new Node(data);
+
+		if(head==null){
+			head = new_node;
+		}
+		else{
+			new_node.next = head.link;
+			head = new_node;
+		}
+	}
+
+	void display(){
+
+		while(head!=null){
+			System.out.println(head.link);
+			head = head.link;
+		}
+	}
+
+
+
+	public static void main(String[] args){
+		
+		LinkedListMasterCode ll = new LinkedListMasterCode();
+		ll.insertAtBegining(20);
+		ll.insertAtBegining(30);
+
+		ll.display();
+	}
+
+}
+
+		
+			
+		

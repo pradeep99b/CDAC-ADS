@@ -1,0 +1,164 @@
+class Queue{
+
+
+	private int queue[] ;
+	private int capacity;
+	private int size;
+	private int front;
+	private int rear;
+	private int count;
+
+	public Queue(int capacity){
+
+		this.capacity = capacity;
+		queue = new int[capacity];
+		size = 0;	
+		front = -1;
+		rear = -1;
+		count= 0 ;
+	}
+		
+	void enqueue(int data){
+
+
+		if(isFull()){
+			System.out.println("Stack Overflow");
+			return;
+		}
+
+		if(front == -1 && rear == -1){
+			front =0;
+			queue[0] = data;
+			size++;
+			return;
+		}
+		
+		queue[(rear+1)%capacity] = data;
+		size++;
+	}
+
+	public int dequeue(){
+
+		if( front==rear ){
+	
+			System.out.println("Element"+queue[front]+"deleted");
+
+			int g = queue[front];
+			front = -1;
+			rear = -1;
+			size--;
+			return k;
+		}
+		if( front>rear ){
+
+			front = -1;
+			rear = -1;
+			System.out.println("Queue is Empty");
+			return -1 ;
+		}
+		if(front== -1 && rear == -1){
+
+			System.out.println("Queue is Empty");
+			return -1;
+		}
+
+			
+		size--;
+		return queue[front++];
+	}
+
+	public boolean isEmpty(){
+
+		return size==0;
+	}
+
+	public boolean isFull(){
+
+		return (size == (capacity-1));
+	}
+
+	public void display(){
+
+
+		if(front== -1 && rear == -1){
+			System.out.println("Queue is Empty");
+			return;
+		}
+
+
+		for(int i=front;i<=rear;i++)
+			System.out.print(queue[i]+" ");
+	
+	}
+
+}
+
+public class StackUsingQueue{
+
+	private Queue primaryQueue;
+	private Queue auxilaryQueue;
+	
+	public StackUsingQueue(int capacity){
+
+		primaryQueue = new Queue(capacity);
+		auxilaryQueue = new Queue(capacity);
+	}
+
+	public boolean isEmpty(){
+
+		return primaryQueue.isEmpty();
+	}
+
+	public void push(int data){
+		primaryQueue.enqueue(data);
+		return;
+	}
+
+
+	public int pop(){
+
+
+		if(primaryQueue.isEmpty()){
+			System.out.println("Stack Underflow");
+			return -1;
+		}
+
+		while(primaryQueue.size()>1){
+
+			auxilaryQueue.enqueue(primaryQueue.dequeue());
+		}
+
+		int k = primaryQueue.dequeue();
+		System.out.println("Popped element is "+k);
+		
+		while(auxilaryQueue.isEmpty())
+			primaryQueue.enqueue(auxilaryQueue.dequeue());
+
+		return k;
+
+	}
+
+	public void display(){
+		
+		primaryQueue.display();
+	}
+
+
+
+	public static void main(String[] args){
+
+	StackUsingQueue stq = new StackUsingQueue(5);
+
+	stq.push(1);
+	stq.push(2);
+	stq.push(3);
+	stq.push(4);
+
+	stq.display();
+
+	stq.pop();
+	stq.display();
+
+	}
+
+}

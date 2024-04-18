@@ -1,0 +1,29 @@
+public class StringLength{
+
+
+	
+	static void getLength(StringBuffer s,int sum){
+
+
+		if(s=="")	
+			return;
+		else{
+			
+			n+=1;
+			sb.deleteChatAt(0);
+			getLength(s,sum);
+			
+		}
+	}
+
+
+	public static void main(String[] args){
+
+
+		int n =0;
+		String s = "Hello";	
+		StringBuffer sb = new StringBuffer(s);
+		getLength(sb,n);
+		System.out.print("The length of the String is :"+n);
+	}
+}

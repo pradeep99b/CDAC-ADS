@@ -1,0 +1,144 @@
+public class ImplementingDLL{
+
+
+	Node head;
+	static class Node{
+
+
+		int data;
+		Node next,prev;
+		
+		Node(int d){
+
+
+			data = d;
+			next = null;
+			prev = null;
+
+		}
+	}
+
+
+	void insertAtBegining(int data){
+
+		Node new_Node = new Node(data);
+	
+		if(head!=null){
+			new_Node.next = head;
+			head.prev = new_Node;
+			head = new_Node;
+			new_Node.prev = null;
+			return;
+		}
+			
+		head = new_Node;
+		new_Node.prev = null;
+
+	}
+
+
+
+	void insert(int pos, int key){
+
+		if(head==null || pos==0){
+			insertAtBegining(key);
+			return;
+		}
+
+		Node n = head;
+		Node p = null;
+		int count = 0;
+		Node new_Node = new Node(key);
+
+		while(count<pos && n.next!=null){
+			
+			p = n;
+			n = n.next;
+			count++;
+		}
+
+		if(count==pos && n!=null){
+		
+			new_Node.next = n;
+			n.prev = new_Node;
+			p.next = new_Node;
+			new_Node.prev = p;
+			
+		
+		}
+		if(count==pos && n==null){
+		
+			p.next = new_Node;
+			new_Node.prev = p;			
+		
+		}
+		
+
+	}	
+
+	void delete(int pos){
+
+		int count = 0;
+		Node n = head;
+		Node p = null;
+		
+		while(count<pos && n!=null){
+			
+			p = n;
+			n = n.next;
+			count++;
+		}
+		
+		if(count==pos && n!=null){
+		
+			p.next = n.next;
+			if(n.next!=null)
+				n.next.prev = p;
+				
+		
+		}
+		
+		
+	}
+
+
+	void display(){
+
+		Node n = head;
+		while(n!=null){
+			System.out.print(n.data+"--->");
+			n = n.next;
+		}
+	}
+
+
+	public static void main(String[] args){
+
+		ImplementingDLL dll = new ImplementingDLL();
+		
+		dll.insertAtBegining(2);
+		dll.insertAtBegining(1);
+	
+		dll.insert(2,3);
+		dll.insert(3,4);
+		
+		dll.display();
+		dll.delete(2);
+		dll.display();
+	}
+
+}
+		
+		
+		
+		
+
+			
+			
+
+
+			
+
+			
+		
+			

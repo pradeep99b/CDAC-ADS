@@ -1,0 +1,15 @@
+public class TreeDemo2{
+
+
+	Node root;
+	static class Node{
+		
+		int data;
+		Node left,right;
+	
+		Node(int d){
+
+			
+
+		
+

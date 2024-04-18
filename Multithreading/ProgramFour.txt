@@ -1,0 +1,15 @@
+public class ProgramFour extends Thread{
+
+
+	System.out.println("Child Thread");
+	System.out.pritnln(Thread.currentThread().getPriority());
+
+
+	public static void main(String[] args){
+	
+	System.out.println(Thread.currentThread().getPriority());
+	Test t = new Test();
+	t.start();
+	
+	}
+}

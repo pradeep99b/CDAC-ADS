@@ -1,0 +1,29 @@
+public class Subset{
+
+	
+	static void substringFunction(String s,String current, int i){
+
+		if(i==s.length()){
+			System.out.println("s");
+			return;
+		}
+
+		substringFunction(s,current,i+1);
+		substringFunction(s,(current+(s.chatAt(i))),i+1);
+
+	
+		
+
+	}
+	
+	
+
+	public static void main(String args[]){
+
+	String current = "";
+	substringFunction("ABC",current,0);
+	
+
+	}
+
+}

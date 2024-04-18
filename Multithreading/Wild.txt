@@ -1,0 +1,46 @@
+public class Wild extends Thread{
+
+
+	public void run(){
+
+	
+		
+
+
+	}
+
+	public static void main(String[] args){
+
+	Wild w1 = new Wild();
+	w1.start();
+
+	Wild w2 = new Wild();
+	w2.start();
+
+	Wild w3 = new Wild();
+	w3.start();
+
+	Wild w4 = new Wild();
+	w4.start();
+
+	Wild w5 = new Wild();
+	w5.start();
+
+	Wild w6 = new Wild();
+	w6.start();
+
+	Wild w7 = new Wild();
+	w7.start();
+
+	Wild w8 = new Wild();
+	w8.start();
+
+	Wild w9 = new Wild();
+	w9.start();
+
+	Wild w10 = new Wild();
+	w10.start();
+
+
+	}
+}

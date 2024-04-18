@@ -1,0 +1,19 @@
+public class SleepDemo extends Thread{
+
+
+	public void run() throws Interruptedexception{
+		
+		for(int i=0;i<6;i++)
+		{
+			System.out.println(i);
+			Thread.sleep(1000);
+		}
+	}
+
+	public static void main(String[] args){
+
+		SleepDemo sd = new SleepDemo();
+		sd.start();
+	}
+}
+	

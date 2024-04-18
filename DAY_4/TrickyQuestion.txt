@@ -1,0 +1,10 @@
+public class TrickyQuestion{
+
+
+
+	public static void main(String[] main){
+
+
+
+	}
+}
